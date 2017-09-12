@@ -21,14 +21,15 @@ void quicksort(int x[], int L, int R) {
 void fasterRecursionquicksort(int x[], int L, int R) {
   int pivot = (x[L] + x[R]) / 2;
   int i = L, j = R;
-
+  int k = 100;
 
   while (i < j) {
     while (x[i]< pivot)
       i++;
     while(x[j] >= pivot)
       j--;
-    swap(x[i], x[j]);
+    if (i < j)
+      swap(x[i], x[j]);
   }
   // guarateed i == j
   if (i - L >= k)
@@ -49,8 +50,9 @@ for (int i = L; i < R; i++) {
 #endif
 
 
-	
+
 int main() {
   int[] a = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
   //  quicksort(a, 0, 9);
   knuthquicksort(a);
+}
